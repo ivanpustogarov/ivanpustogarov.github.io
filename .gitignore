@@ -8,4 +8,8 @@ _site
 .tweet-cache
 Gemfile.lock
 vendor
+stash
+*~
+*.swp
+*.swo
 

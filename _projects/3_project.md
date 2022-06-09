@@ -1,81 +1,70 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+title: Bitcoin and Tor deanonymization
+description: Deanonymizing criminals who use anonymization technologies
+img: assets/img/network.jpg
 importance: 3
 category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<a href="https://github.com/ivanpustogarov/hsportscanner" title="GitHub"><i class="fab fa-github" style="font-size:18px">&nbsp; https://github.com/ivanpustogarov/hsportscanner</i></a>
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal it's glory in the next row of images.
+<a href="https://github.com/ivanpustogarov/bcclient" title="GitHub"><i class="fab fa-github" style="font-size:18px">&nbsp; https://github.com/ivanpustogarov/bcclient</i></a>
 
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+In this set of projects, we analyzed anonymity level provided by the Tor network and
+Bitcoin. 
 
+Anonymization technologies are a double-edged sword. On the one hand, they help
+fight censorship in countries with oppressive regimes, prevent tracking by
+large tech corporation, and allow one to send money across borders without
+restriction mandated by the global banking system. On the other hand the very
+same technologies can be used by malicious actors to commit various
+cybercrimes, such extortion, blackmailing, money laundering, and selling drugs
+and other prohibited/dangerous items online.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Our goal in this set of projects was to analyze ways Tor and Bitcoin are used
+by criminals, evaluate anonymity provided by these two systems and to find ways
+to deanonymize cybercriminals who use these technologies to hide their
+traces.
 
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+### Tor
+
+Tor is a volunteer-operated network of relay servers, each running an
+open-source software developed by the Tor project. It can be used by anyone to
+conceal their location and prevent network surveillance or traffic analysis.
+This achieved by the user sending traffic through multiple Tor relays before it
+reaches the target server/web-site.  In this way, the destination web-site sees
+the IP address of the last relay in the path instead of the user's IP address.
+Similarly, the user's ISP can only see that the user connects to the first
+relay in the path, and thus cannot learn what web-site the users is
+connecting to.
+
+### Onion Services
+
+In a similar way, Tor can also provide anonymity to websites.  In order to hide
+its location/IP address from  the both the clients and the ISP, the server
+would choose a random Tor relay that would be used to forward clients'
+traffic to the server and back.
+
+This type of functionality turns to be very useful to operate a marketplace to
+sell drugs and other illegal items.
+
+### Bitcoin network anonymity
+
+While Bitcoin’s transaction are publicly available and can often be linked to
+the same entity, the real identities are still hidden behind pseudonymous
+Bitcoin addresses.  Moreover the relation between different transactions can be
+broken using Bitcoin mixers.  Given bitcoin high market price, this makes it a
+useful tool for illegal activities such as money laundering, infecting
+companies with ransomware, extortionware, and selling illegal items.
+
+### Deanonymization
+
+In this set of projects we found a number of limitations and design flaws in
+both Tor Bitcoin networks that allowed us to deanonymize its users.  We showed
+possibility for complete deanonymization of a large number of Tor hidden
+services and were the first to describe a practical off-path network-level
+deanonymization attack on Bitcoin clients. Finally, in this project, we showed
+that users that connect to the Bitcoin network through Tor are vulnerable to
+Man-in- the-Middle attacks.
