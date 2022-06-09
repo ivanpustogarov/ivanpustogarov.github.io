@@ -31,7 +31,7 @@ Russia.
 
 My research follows two main directions.
 <!--that fall under the umbrella of cybercrime investigation. -->
-First, I try to find novel ways to to automatically
+First, I try to find novel ways to automatically
 and reliably identify exploitable vulnerabilities within large code bases and
 binary code. On the other hand, I am interested in devising methods and tools
 to deanonymize criminals that use anonymization technologies (e.g. Tor and Cryptocurrencies) to hide their
